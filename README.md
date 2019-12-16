@@ -1,7 +1,12 @@
 # Movies Demo
 
-This is a demo project for for my post on ProAndroidDev.com to show how to handle WindowInsets properly
+This is a extension of the MoviesInsetsDemo project which handles the translucent system bars across API levels and themes.
 
-https://proandroiddev.com/draw-under-status-bar-like-a-pro-db38cfff2870
+## v21
+![v21](screens/v21.png)
 
-![example](gif/demo.gif)
+## v23
+![v23](screens/v23.png)
+
+## v27
+![v27](screens/v27.png)
