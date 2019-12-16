@@ -8,20 +8,22 @@ import android.view.View.*
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
-import androidx.core.view.marginTop
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
 import androidx.recyclerview.widget.GridLayoutManager
 import com.github.razir.movies.utils.GridItemDecorator
 import com.github.razir.movies.utils.getTestData
 import kotlinx.android.synthetic.main.activity_movies.*
-import android.util.DisplayMetrics
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
 
 
 class MoviesActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
         setContentView(R.layout.activity_movies)
         initView()
         setupInsets()
@@ -33,12 +35,12 @@ class MoviesActivity : AppCompatActivity() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             moviesRootLayout.systemUiVisibility = SYSTEM_UI_FLAG_LAYOUT_STABLE or
-                    SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                     SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
         } else {
             moviesRecyclerView.updatePadding(top = toolbarHeight + baseMoviesPadding)
         }
 
-        ViewCompat.setOnApplyWindowInsetsListener(moviesToolbar) { view, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(moviesToolbar) { _, insets ->
             moviesToolbar.setMarginTop(insets.systemWindowInsetTop)
             moviesRecyclerView.updatePadding(top = toolbarHeight + insets.systemWindowInsetTop + baseMoviesPadding)
             insets

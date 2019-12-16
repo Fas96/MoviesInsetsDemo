@@ -15,7 +15,9 @@
         android:id="@+id/moviesAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#cc000000"
+        android:background="@color/status_bar_scrim"
+        android:theme="@style/Widget.AppTheme.AppBar"
+        app:elevation="2dp"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.Toolbar
